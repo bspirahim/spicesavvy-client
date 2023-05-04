@@ -1,36 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import './Header.css'
 
 const Header = () => {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home" className='fs-4'>Food-Hub</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="m-auto">
 
-                            <Link className='me-3 text-decoration-none text-light fs-5' to="/">Home</Link>
-                            <Link className='me-3 text-decoration-none text-light fs-5' to="blog">Blog</Link>
-                            <Link className='me-3 text-decoration-none text-light fs-5' to="about">About Us</Link>
-
-                        </Nav>
-                        <Nav>
-                            <Link className='me-3 text-decoration-none text-light fs-5' to="login">Login</Link><Link className='me-3 text-decoration-none text-light fs-5' to="register">Register</Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-            <div className='position-relative text-center'>
-                <img className='banner w-100' src="../../../public/images/cover/cover-2.jpg" class="img-fluid" alt="Responsive image" />
-                <div className='text-light position-absolute bottom-50 end-50'>
-                    <p className='fs-1 fw-bold '>Nature Has Always <br /> Care For Us</p>
-                    <Button variant="light">Get More</Button>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="#"> <img height={30} src="/public/images/logo/logo-1.png" alt="" /> </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav m-auto my-2 my-lg-0 " >
+                            <Link to='/' className='text-decoration-none text-dark fs-5 ms-3'>Home</Link>
+                            <Link to='blog' className='text-decoration-none text-dark fs-5 ms-3'>Blog</Link>
+                        </ul>
+                        <div>
+                            <Link><Button variant="primary">Login / Sign Up</Button></Link>
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
+            </nav>
+
+
         </div>
     );
 };
