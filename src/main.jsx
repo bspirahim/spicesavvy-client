@@ -13,6 +13,7 @@ import Blog from './pages/Blog/Blog.jsx';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import ViewRecipe from './pages/ViewRecipe/ViewRecipe.jsx';
 
 const router = createBrowserRouter([
 
@@ -36,7 +37,15 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'/chef/:id',
+        element:<ViewRecipe></ViewRecipe>,
+        loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
       }
+
+
+
 
     ]
   }

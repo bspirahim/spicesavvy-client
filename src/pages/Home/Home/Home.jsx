@@ -30,7 +30,6 @@ const Home = () => {
 
             <section className='row my-5 py-5'>
                 <h2 className='text-center mb-4'>Member of Chef</h2>
-                <hr />
                 {
                     chefs.map(chef =>
                       
@@ -44,7 +43,7 @@ const Home = () => {
                                         <p>Experience : {chef.experience} Years</p>
                                         <p>Number of Recipes : {chef.recipes}</p>
                                         <p>Likes : {chef.likes}</p>
-                                        <Link to=''>
+                                        <Link to={`/chef/${chef.id}`}>
                                             <Button className='primary-btn text-light' variant="info">View Recipe</Button>
                                         </Link>
                                     </Card.Body>
