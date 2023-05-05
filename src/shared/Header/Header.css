@@ -1,39 +1,35 @@
-*{
-    padding: 0; 
+* {
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
+
 }
-.navbar-brand{
+
+.navbar-brand {
     background: 2rem;
     color: black;
     font-family: 'Lobster', cursive;
     font-size: 30px;
-    
+
 }
-.navbar-brand:hover{
+
+.navbar-brand:hover {
     color: black;
 }
-.nav-link{
+
+.nav-link {
     margin-right: 10px;
     margin-left: 10px;
     font-family: 'Rubik', sans-serif;
     color: black;
     text-transform: uppercase;
 }
-.nav-link:hover{
-    color:black;
+
+.nav-link:hover {
+    color: black;
 }
-.search{
-    height: 40px;
-    width: 80%;
-    border-radius: 60px;
-    margin-right: -35px;
-    font-family: 'Rubik', sans-serif;
-    outline: none;
-    border: 2px solid rgb(248, 26, 92);
-}
-.btn0{
+
+.btn0 {
     height: 40px;
     width: 40%;
     border: none;
@@ -42,11 +38,11 @@
     font-weight: 700;
     outline: none;
     border-radius: 60px;
-    
+
 }
 
 
-.main{
+.main {
     background-image: url("../../../public/images/cover/cover.jpg");
     background-size: cover;
     height: 100vh;
@@ -54,25 +50,41 @@
     background-position: 50% 50%;
 
 }
-.main h1{
+
+.main h1 {
     font-size: 4rem;
     font-weight: 700;
 }
-.btn1{
-    height: 45px;
+
+.btn1 {
     width: 35%;
+    padding: 10px 20px;
     border: none;
-    background-color:  rgb(248, 26, 92);
+    background-color: rgb(248, 26, 92);
     color: white;
     border-radius: 60px;
     font-weight: 700;
     outline: none;
     transition: 0.5s;
 }
-.btn1:hover{
+
+.btn1:hover {
     background-color: rgb(168, 1, 51);
+
+}
+
+.primary-btn {
+    background-color: rgb(248, 26, 92);
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    padding: 8px 20px;
     
 }
-h1{
+.primary-btn:hover{
+    background-color: rgb(168, 1, 51);
+}
+
+h1 {
     font-weight: 700;
 }
