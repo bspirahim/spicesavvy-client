@@ -28,31 +28,31 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='row my-5 py-5'>
-                <h2 className='text-center mb-4'>Member of Chef</h2>
-                {
-                    chefs.map(chef =>
-                      
+            <section className='container mb-5'>
+                <h2 className='text-center my-5 '>Member of Chef</h2>
+                <div className="row">
+                    {
+                        chefs.map(chef =>
 
-                        <div className="col-md-4 mb-4">
-                            <Col>
-                                <Card>
-                                    <Card.Img variant="top" height='300px' className='w-100 p-3' src={chef.img} />
-                                    <Card.Body>
+
+                            <div className="col-md-4 mb-4">
+                                <Card className='p-0'>
+                                    <Card.Img variant="top" height='250px' className='w-100' src={chef.img} />
+                                    <Card.Body className=''>
                                         <Card.Title>{chef.name}</Card.Title>
                                         <p>Experience : {chef.experience} Years</p>
                                         <p>Number of Recipes : {chef.recipes}</p>
                                         <p>Likes : {chef.likes}</p>
                                         <Link to={`/chef/${chef.id}`}>
-                                            <Button className='primary-btn text-light' variant="info">View Recipe</Button>
+                                            <Button className='primary-btn text-light w-100' variant="info">View Recipe</Button>
                                         </Link>
                                     </Card.Body>
                                 </Card>
-                            </Col>
-                        </div>
+                            </div>
 
-                    )
-                }
+                        )
+                    }
+                </div>
             </section>
         </div>
     );

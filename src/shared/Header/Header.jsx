@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import './Header.css'
 import { AuthContext } from '../../Provider/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
     const {user, signOutUser} = useContext(AuthContext);
@@ -29,10 +30,13 @@ const Header = () => {
                             <Link to='/' className='text-decoration-none text-dark fs-5 ms-3'>Home</Link>
                             <Link to='blog' className='text-decoration-none text-dark fs-5 ms-3'>Blog</Link>
                         </ul>
-                        <div>
-                             { user ? (<button onClick={handleSignOut} className='primary-btn'>logout</button>):
-                             (<Link to='login'><Button className='primary-btn'>login</Button></Link>)}
-                             <li>{user?.email}</li>
+                        <div className='d-flex align-items-center'>
+                         <p>{user?.email}</p>
+                             { user ?(<button onClick={handleSignOut} className='primary-btn'>logout</button>)
+                             : 
+                             (<Link to='login'><Button className='primary-btn'>login</Button></Link>) }
+                             
+                             
                            
                             
                         </div>
