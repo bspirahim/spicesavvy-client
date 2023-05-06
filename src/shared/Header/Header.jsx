@@ -5,7 +5,16 @@ import './Header.css'
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const {user, signOutUser} = useContext(AuthContext);
+
+    const handleSignOut = () =>{
+        signOutUser()
+        .then()
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+    console.log(user?.email)
     return (
         <div>
 
@@ -21,8 +30,9 @@ const Header = () => {
                             <Link to='blog' className='text-decoration-none text-dark fs-5 ms-3'>Blog</Link>
                         </ul>
                         <div>
-                             { user ? <Link to='login'><Button className='primary-btn'>logOut</Button></Link>:
-                             <Link to='login'><Button className='primary-btn'>Login</Button></Link>}
+                             { user ? (<button onClick={handleSignOut} className='primary-btn'>logout</button>):
+                             (<Link to='login'><Button className='primary-btn'>login</Button></Link>)}
+                             <li>{user?.email}</li>
                            
                             
                         </div>

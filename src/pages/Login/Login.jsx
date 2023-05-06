@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { FaFacebookF, FaGithub, FaGofore } from 'react-icons/fa';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
 
     const {signinUser} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleLogin = event =>{
         event.preventDefault()
@@ -22,6 +24,8 @@ const Login = () => {
         .catch(error =>{
             console.log(error)
         })
+        navigate('/');
+        
     }
 
     return (
@@ -43,7 +47,7 @@ const Login = () => {
                                         <span className ="password-toggle"><i className ="uil uil-eye"></i></span>
                                         <label htmlFor="loginPassword">Password</label>
                                     </div>
-                                    <button className ="btn btn-primary primary-btn rounded-pill btn-login w-100 mb-2">Login</button>
+                                    <button className ="btn btn-primary primary-btn rounded-pill btn-login w-100 mb-2">login</button>
                                 </Form>
                                 <p className ="mb-0">Don't have an account? <Link to="/register" className ="hover">Register</Link></p>
                                 <div className ="divider-icon my-4">or</div>
