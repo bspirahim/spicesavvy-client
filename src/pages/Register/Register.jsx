@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useState } from 'react';
-import { FaFacebookF, FaGithub, FaGofore } from 'react-icons/fa';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -31,10 +31,11 @@ const Register = () => {
                 .then(result => {
                     const createdUser = result.user;
                     console.log(createdUser)
-                    toast('Successfully Registerd')
+                    toast.success('Successfully Registerd')
+                    form.reset()
                 })
                 .catch(error => {
-                    console.log(error)
+                    toast.error(error.message)
                 })
         }
 
@@ -74,11 +75,7 @@ const Register = () => {
                                 <p className="mb-0">Already have an account? <Link to="/login" className="hover">Login</Link></p>
                                 
                                 <div className="divider-icon my-4">or</div>
-                                <nav className="nav social justify-content-center text-center">
-                                    <a href="#" className="btn btn-circle btn-sm btn-facebook-f"><FaGofore></FaGofore> </a>
-                                    <a href="#" className="btn btn-circle btn-sm btn-twitter"><FaGithub></FaGithub> </a>
-                                    <a href="#" className="btn btn-circle btn-sm btn-google"><FaFacebookF></FaFacebookF> </a>
-                                </nav>
+                                <SocialLogin from={'/'}></SocialLogin>
                             </div>
                         </div>
                     </div>

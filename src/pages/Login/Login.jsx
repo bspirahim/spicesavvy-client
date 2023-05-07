@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
-import { FaFacebookF, FaGithub, FaGofore } from 'react-icons/fa';
-import { Form, Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
 
     const {signinUser} = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event =>{
         event.preventDefault()
@@ -20,11 +23,13 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser)
+            toast.success('Logged in')
+            form.reset()
+            navigate(from, {replace : true})
         })
         .catch(error =>{
-            console.log(error)
+            toast.error(error.message)
         })
-        navigate('/');
         
     }
 
@@ -51,11 +56,7 @@ const Login = () => {
                                 </Form>
                                 <p className ="mb-0">Don't have an account? <Link to="/register" className ="hover">Register</Link></p>
                                 <div className ="divider-icon my-4">or</div>
-                                <nav className ="nav social justify-content-center text-center">
-                                    <a href="#" className ="btn btn-circle btn-sm btn-facebook-f"><FaGofore></FaGofore> </a>
-                                    <a href="#" className ="btn btn-circle btn-sm btn-twitter"><FaGithub></FaGithub> </a>
-                                    <a href="#" className ="btn btn-circle btn-sm btn-google"><FaFacebookF></FaFacebookF> </a>
-                                </nav>
+                                <SocialLogin from={from}></SocialLogin>   
                             </div>
                         </div>
                     </div>

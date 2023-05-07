@@ -8,7 +8,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 const ViewRecipe = () => {
     const { id } = useParams()
     const chef = useLoaderData()
-    const { name, experience, recipes, likes, img, short_bio } = chef;
+    const { name, img, short_bio } = chef;
 
     const [allRecipe, setAllRecipe] = useState([])
 
@@ -17,7 +17,7 @@ const ViewRecipe = () => {
             .then(res => res.json())
             .then(data => setAllRecipe(data))
             .catch(error => {
-                console.log(error)
+                toast.error(error.message)
             })
     }, [])
 
