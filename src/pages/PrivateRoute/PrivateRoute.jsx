@@ -3,8 +3,11 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRoute = ({children}) => {
-    const {user} = useContext(AuthContext);
+    const {user, loading} = useContext(AuthContext);
     const location = useLocation();
+    if(loading){
+        return <Spinner animation="border" variant="danger" />
+    }
     if(user){
         return children;
     }

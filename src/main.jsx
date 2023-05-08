@@ -15,6 +15,7 @@ import Register from './pages/Register/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import ViewRecipe from './pages/ViewRecipe/ViewRecipe.jsx';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute.jsx';
+import FoodMenu from './pages/Home/FoodMenu.jsx';
 
 const router = createBrowserRouter([
 
@@ -25,8 +26,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader:() => fetch('http://localhost:5000/category')
+        
       },
+      {
+        path:'/category/:id',
+        element:<FoodMenu></FoodMenu>,
+        loader:({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+      },
+      
       {
         path: '/blog',
         element: <Blog></Blog>
@@ -46,11 +55,8 @@ const router = createBrowserRouter([
           <ViewRecipe></ViewRecipe>
         </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
-      }
-
-
-
-
+      },
+     
     ]
   }
 ])
