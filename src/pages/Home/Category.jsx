@@ -3,22 +3,25 @@ import { Card } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
 import FoodCard from '../FoodCard/FoodCard';
 
-const FoodMenu = () => {
-    const id = useParams()
+const Category = () => {
+    const { id } = useParams()
     const foods = useLoaderData()
 
     const [category, setCategory] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`http://localhost:5000/category/${id}`)
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => setCategory(data))
     }, [])
 
     return (
         <div>
 
             <section>
-                <img src="/public/images/menu-banner/bg-food.jpg" alt="" className='w-100' />
+                <div className='position-relative'>
+                    <img src="/images/menu-banner/bg-food.jpg" alt="" className='w-100' />
+                <h1 className='position-absolute top-50 start-50 translate-middle'>{category.category_name}</h1>
+                </div>
             </section>
 
             <section className='container my-5'>
@@ -29,7 +32,7 @@ const FoodMenu = () => {
                             food={food}
                         >
 
-                        </FoodCard>  )
+                        </FoodCard>)
                     }
                 </div>
             </section>
@@ -38,4 +41,4 @@ const FoodMenu = () => {
     );
 };
 
-export default FoodMenu;
+export default Category;

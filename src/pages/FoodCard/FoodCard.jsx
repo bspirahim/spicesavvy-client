@@ -1,48 +1,51 @@
 import React from 'react';
+import { Button, Card } from 'react-bootstrap';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
+import FoodModal from '../FoodModal/FoodModal';
 
 const FoodCard = ({ food }) => {
     console.log(food)
-    const {name, type, img, cuisine, ingredients, instructions} = food
+    const { name, img, rating, ingredients, instructions } = food
 
     let ingredientElement = '';
-   for (const ingredient of ingredients){
-     let ingredientValues = ingredient.name + ': ' + ingredient.quantity + ', ';
-     ingredientElement = ingredientElement + ingredientValues
-   }
+    for (const ingredient of ingredients) {
+        let ingredientValues = ingredient.name + ': ' + ingredient.quantity + ', ';
+        ingredientElement = ingredientElement + ingredientValues
+    }
 
-   let newInstruction = '';
-   for(const instruction of instructions){
-    newInstruction = newInstruction + instruction 
-   }
-   console.log(newInstruction)
-
-
-
-
-
-
-    
-
+    let newInstruction = '';
+    for (const instruction of instructions) {
+        newInstruction = newInstruction + ' ' + instruction
+    }
 
     return (
-        <section className="container">
-            <div className="card mb-3" >
-                <div className="row g-0 d-flex align-items-center">
-                    <div className="col-md-4">
-                        <img src={img} className="img-fluid rounded-start" alt="..."/>
+
+        <div className="col-md-4 mb-5 d-flex align-items-stretch">
+            <Card className=' p-0'>
+                <Card.Img variant="top" height='250' className='w-100 card-img-top' src={img} />
+                <Card.Body>
+                    <Card.Title>{name}</Card.Title>
+                    <div className='pe-none mb-2'>
+                        <Rating
+                            placeholderRating={rating}
+                            emptySymbol={<FaRegStar></FaRegStar>}
+                            placeholderSymbol={<FaStar className='text-warning'></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                        ></Rating>
                     </div>
-                    <div className="col-md-8">
-                        <div className="card-body ps-5">
-                            <h5 className="card-title">{name}</h5>
-                            <p><span className='fw-bold'>Type: </span>{type}</p>
-                            <p> <span className='fw-bold'>Ingredients: </span>{ingredientElement}</p>
-                            <p> <span className='fw-bold'>Cuisine: </span>{cuisine}</p>
-                            <p> <span className='fw-bold'>Instraction: </span>{newInstruction}</p>
-                        </div>
-                    </div>
+                    <p><span className='fw-bold'>Ingredients</span> : {ingredientElement.slice(0, -2)}.</p>
+
+                </Card.Body>
+                <div className='px-3 d-flex justify-content-between ali'>
+                    <Button className=' primary-btn text-light mb-4' variant="info">Favorite</Button>
+
+                    <FoodModal
+                        instruction={newInstruction}>
+                    </FoodModal>
                 </div>
-            </div>
-        </section>
+            </Card>
+        </div>
     );
 };
 
