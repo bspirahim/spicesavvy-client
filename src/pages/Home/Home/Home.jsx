@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 import Card from 'react-bootstrap/Card';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const Home = () => {
     const foods = useLoaderData()
@@ -25,7 +26,7 @@ const Home = () => {
                     <div className="row py-4 ">
                         <div className="col-lg-7 pt-5 text-center ">
                             <h1 className="pt-5">Nature Has Always Cared For us</h1>
-                            <button className="btn1 mt-3">More Tips</button>
+                            <Link to="/blog"><button className="btn1 mt-3">More Tips</button></Link>
                         </div>
                     </div>
                 </div>
@@ -55,29 +56,31 @@ const Home = () => {
 
             <section className='container my-5 pb-5'>
                 <h2 className='text-center mb-5 '>Member of Chef</h2>
-                <div className="row">
-                    {
-                        chefs.map(chef =>
+                <LazyLoad>
+                    <div className="row">
+                        {
+                            chefs.map(chef =>
 
 
-                            <div className="col-md-4 mb-4">
-                                <Card className='p-0'>
-                                    <Card.Img variant="top" height='250px' className='w-100' src={chef.img} />
-                                    <Card.Body className=''>
-                                        <Card.Title>{chef.name}</Card.Title>
-                                        <p>Experience : {chef.experience} Years</p>
-                                        <p>Number of Recipes : {chef.recipes}</p>
-                                        <p>Likes : {chef.likes}</p>
-                                        <Link to={`/chef/${chef.id}`}>
-                                            <Button className='primary-btn text-light w-100' variant="info">View Recipe</Button>
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-                            </div>
+                                <div className="col-md-4 mb-4">
+                                    <Card className='p-0'>
+                                        <Card.Img variant="top" height='250px' className='w-100' src={chef.img} />
+                                        <Card.Body className=''>
+                                            <Card.Title>{chef.name}</Card.Title>
+                                            <p>Experience : {chef.experience} Years</p>
+                                            <p>Number of Recipes : {chef.recipes}</p>
+                                            <p>Likes : {chef.likes}</p>
+                                            <Link to={`/chef/${chef.id}`}>
+                                                <Button className='primary-btn text-light w-100' variant="danger">View Recipe</Button>
+                                            </Link>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
 
-                        )
-                    }
-                </div>
+                            )
+                        }
+                    </div>
+                </LazyLoad>
             </section>
 
 
