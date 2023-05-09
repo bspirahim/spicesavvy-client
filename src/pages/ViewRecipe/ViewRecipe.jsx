@@ -12,7 +12,7 @@ const ViewRecipe = () => {
     const [foods, setAllFood] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/food/${id}`)
+        fetch(`http://localhost:5000/chef-food/${id}`)
             .then(res => res.json())
             .then(data => setAllFood(data))
             .catch(error => {

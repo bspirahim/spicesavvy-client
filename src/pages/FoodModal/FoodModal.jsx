@@ -13,12 +13,12 @@ const FoodModal = ({ instruction }) => {
     return (
         <div>
 
-            <a className='btn' role="button" onClick={handleShow}>Instruction <FaChevronRight></FaChevronRight></a>
+            <a className='btn' role="button" onClick={handleShow}>Cooking Method <FaChevronRight></FaChevronRight></a>
 
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Instructions</Modal.Title>
+                    <Modal.Title>Cooking Method </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>{instruction}</Modal.Body>
                 <Modal.Footer>

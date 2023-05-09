@@ -1,8 +1,9 @@
 .banner {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-    url('/public/images/cover/banner.jpg');
+    url('/images/cover/banner.jpg');
     background-size: cover;
     height: 90vh;
+    min-height: 400px;
     width: 100%;
     background-position: 50% 50%;
 

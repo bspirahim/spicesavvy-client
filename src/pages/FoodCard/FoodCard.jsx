@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import FoodModal from '../FoodModal/FoodModal';
+import { toast } from 'react-toastify';
 
 const FoodCard = ({ food }) => {
+    const [favorite, setFavorite] = useState(false)
     console.log(food)
     const { name, img, rating, ingredients, instructions } = food
 
@@ -17,6 +19,11 @@ const FoodCard = ({ food }) => {
     let newInstruction = '';
     for (const instruction of instructions) {
         newInstruction = newInstruction + ' ' + instruction
+    }
+
+    const handleFavorite = (event) =>{
+        setFavorite(event.target)
+        toast('This recipe is my favorite');
     }
 
     return (
@@ -38,7 +45,7 @@ const FoodCard = ({ food }) => {
 
                 </Card.Body>
                 <div className='px-3 d-flex justify-content-between ali'>
-                    <Button className=' primary-btn text-light mb-4' variant="info">Favorite</Button>
+                    <Button onClick={handleFavorite} disabled={favorite} className=' primary-btn text-light mb-4' variant="danger">Favorite</Button>
 
                     <FoodModal
                         instruction={newInstruction}>
