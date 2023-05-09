@@ -16,6 +16,7 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import ViewRecipe from './pages/ViewRecipe/ViewRecipe.jsx';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute.jsx';
 import Category from './pages/Home/Category.jsx';
+import Error from './pages/Error/Error.jsx';
 
 const router = createBrowserRouter([
 
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: '/',
