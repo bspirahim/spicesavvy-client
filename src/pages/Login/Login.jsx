@@ -44,15 +44,15 @@ const Login = () => {
                                 <p className ="lead mb-6 text-start">Fill your email and password to sign in.</p>
                                 <Form onSubmit={handleLogin} className ="text-start mb-3">
                                     <div className ="form-floating mb-4">
-                                        <input type="email" name='email' className ="form-control" placeholder="Email" id="loginEmail" />
+                                        <input type="email" name='email' className ="form-control" placeholder="Email" id="loginEmail" required />
                                         <label htmlFor="loginEmail">Email</label>
                                     </div>
                                     <div className ="form-floating password-field mb-4">
-                                        <input type="password" name='password' className ="form-control" placeholder="Password" id="loginPassword" />
+                                        <input type="password" name='password' className ="form-control" placeholder="Password" id="loginPassword" required />
                                         <span className ="password-toggle"><i className ="uil uil-eye"></i></span>
                                         <label htmlFor="loginPassword">Password</label>
                                     </div>
-                                    <button className ="btn btn-primary primary-btn rounded-pill btn-login w-100 mb-2">login</button>
+                                    <button className ="btn btn-primary primary-btn rounded-pill btn-login w-100 mb-2">Login</button>
                                 </Form>
                                 <p className ="mb-0">Don't have an account? <Link to="/register" className ="hover">Register</Link></p>
                                 <div className ="divider-icon my-4">or</div>

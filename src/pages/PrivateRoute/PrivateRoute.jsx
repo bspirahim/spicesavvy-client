@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return <div className='text-center'>
             <Spinner className='m-auto my-5' animation="border" variant="danger" />
-            </div>
+        </div>
     }
     if (user) {
         return children;

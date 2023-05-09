@@ -4,7 +4,6 @@ import { FaGithub, FaGofore } from 'react-icons/fa';
 import app from '../../firebase/firebse.config';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../Provider/AuthProvider';
 
 const SocialLogin = ({ from }) => {
     const auth = getAuth(app)

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
@@ -7,6 +7,11 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/'
 
     const [error, setError] = useState('')
 
@@ -33,6 +38,7 @@ const Register = () => {
                     console.log(createdUser)
                     toast.success('Successfully Registerd')
                     form.reset()
+                    navigate(from, {replace : true})
                 })
                 .catch(error => {
                     toast.error(error.message)
@@ -49,24 +55,24 @@ const Register = () => {
                     <div className="col-lg-7 col-xl-6 col-xxl-5 mx-auto mt-n20">
                         <div className="card">
                             <div className="card-body p-11 text-center">
-                                <h2 className="mb-3 text-start">Register to Sandbox</h2>
+                                <h2 className="mb-3 text-start">Register</h2>
                                 <p className="lead mb-6 text-start">Registration takes less than a minute.</p>
                                 <Form onSubmit={handleRegister} className="text-start mb-3">
                                     <div className="form-floating mb-4">
-                                        <input type="text" className="form-control" placeholder="Name" name='name' id="name" />
+                                        <input type="text" className="form-control" placeholder="Name" name='name' id="name" required />
                                         <label htmlFor="loginName">Name</label>
                                     </div>
                                     <div className="form-floating mb-4">
-                                        <input type="email" name='email' className="form-control" placeholder="Email" id="email" />
+                                        <input type="email" name='email' className="form-control" placeholder="Email" id="email" required />
                                         <label htmlFor="loginEmail">Email</label>
                                     </div>
                                     <div className="form-floating password-field mb-4">
-                                        <input type="password" name='password' className="form-control" placeholder="Password" id="password" />
+                                        <input type="password" name='password' className="form-control" placeholder="Password" id="password" required />
                                         <span className="password-toggle"><i className="uil uil-eye"></i></span>
                                         <label htmlFor="loginPassword">Password</label>
                                     </div>
                                     <div className="form-floating mb-4">
-                                        <input type="text" name='photo' className="form-control" placeholder="Name" id="photoUrl" />
+                                        <input type="text" name='photo' className="form-control" placeholder="Name" id="photoUrl" required />
                                         <label htmlFor="loginName">Photo Url</label>
                                     </div>
                                     <button type='submit' className="btn btn-primary primary-btn rounded-pill btn-login w-100 mb-2">Register</button>
@@ -75,7 +81,7 @@ const Register = () => {
                                 <p className="mb-0">Already have an account? <Link to="/login" className="hover">Login</Link></p>
                                 
                                 <div className="divider-icon my-4">or</div>
-                                <SocialLogin from={'/'}></SocialLogin>
+                                <SocialLogin from={from}></SocialLogin>
                             </div>
                         </div>
                     </div>

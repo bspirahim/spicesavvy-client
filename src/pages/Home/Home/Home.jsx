@@ -83,7 +83,7 @@ const Home = () => {
 
             <section className=' container my-5 pb-5'>
                 <h2 className='text-center mb-5 '>Review's</h2>
-                <Marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                <Marquee speed={50} pauseOnHover>
                     <Container>
                         <div className="row">
                             <div className="col-md-3 py-4 d-flex align-items-stretch">
@@ -103,7 +103,7 @@ const Home = () => {
                                     <div className='d-flex align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/player-1.png" />
                                         <div className='px-3 lh-1'>
-                                            <p className='fw-bold'>Jhon Smith</p>
+                                            <p className='fw-bold mb-1'>Jhon Smith</p>
                                             <span>Google</span>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@ const Home = () => {
                                     <div className='d-flex align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/player-6.png" />
                                         <div className='px-3 lh-1'>
-                                            <p className='fw-bold'>Abu Sufian</p>
+                                            <p className='fw-bold mb-1'>Abu Sufian</p>
                                             <span>Google</span>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@ const Home = () => {
                                     <div className='d-flex align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/player-5.png" />
                                         <div className='px-3 lh-1'>
-                                            <p className='fw-bold'>Mujahid</p>
+                                            <p className='fw-bold  mb-1'>Mujahid</p>
                                             <span>Google</span>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@ const Home = () => {
                                     <div className='d-flex align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/player-3.png" />
                                         <div className='px-3 lh-1'>
-                                            <p className='fw-bold'>Maruf Ahmed</p>
+                                            <p className='fw-bold  mb-1'>Maruf Ahmed</p>
                                             <span>Google</span>
                                         </div>
                                     </div>

@@ -23,7 +23,7 @@ const FoodCard = ({ food }) => {
 
     const handleFavorite = (event) =>{
         setFavorite(event.target)
-        toast('This recipe is my favorite');
+        toast('This recipe added to your favorite list');
     }
 
     return (
