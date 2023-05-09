@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -35,10 +35,13 @@ const Register = () => {
             createUser(email, password)
                 .then(result => {
                     const createdUser = result.user;
-                    console.log(createdUser)
+                    updateUser(name, photo).then(() => {
+                        form.reset();
+                    })
+                    .catch(error => { toast.error(error.message); });
+
                     toast.success('Successfully Registerd')
-                    form.reset()
-                    navigate(from, {replace : true})
+                    navigate(from, { replace: true })
                 })
                 .catch(error => {
                     toast.error(error.message)
@@ -79,7 +82,7 @@ const Register = () => {
                                     <p className='text-danger'>{error}</p>
                                 </Form>
                                 <p className="mb-0">Already have an account? <Link to="/login" className="hover">Login</Link></p>
-                                
+
                                 <div className="divider-icon my-4">or</div>
                                 <SocialLogin from={from}></SocialLogin>
                             </div>
