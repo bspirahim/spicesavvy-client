@@ -10,14 +10,14 @@ const Footer = () => {
         <div className=' bg-dark'>
             <Container>
                 <div className='row py-5'>
-                    <div className="col-md-3">
+                    <div className="col-12 col-md-3">
                         <h4 className='text-light'>Explore</h4>
                         <p className='text-light mb-0'>Recipe</p>
                         <p className='text-light mb-0'>Fitnase</p>
                         <p className='text-light mb-0'>Healthy Living</p>
                         <p className='text-light mb-0'>Blog</p>
                     </div>
-                    <div className="col-md-6 text-center my-4">
+                    <div className="col-12 col-md-6 text-center my-4">
                         <h4 className='text-light pb-2'>Join Our Mailing List</h4>
                         <InputGroup className="mb-3">
                             <Form.Control
@@ -30,7 +30,7 @@ const Footer = () => {
                             </Button>
                         </InputGroup>
                     </div>
-                    <div className="col-md-3 text-center my-4">
+                    <div className="col-12 col-md-3 text-center my-4">
                         <h4 className='text-light'>Follow Us</h4>
                         <div className='text-light fs-4'>
                             <span> <FaFacebookF></FaFacebookF> </span>

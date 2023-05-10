@@ -24,15 +24,15 @@ const ViewRecipe = () => {
     return (
         <div>
 
-            <div className='banner d-flex align-items-center mb-5'>
+            <div className='col-12 banner d-flex align-items-center pt-5 mb-5'>
 
                 <Container>
                     <div>
-                        <Row className='d-flex align-items-center'>
-                            <Col className=''>
-                                <img height='400' className='w-100 card-img-top  rounded' src={img} alt="" />
+                        <Row className=' d-flex align-items-center'>
+                            <Col className='col-12 col-md-6'>
+                                <img height='400' className=' w-100 card-img-top  rounded' src={img} alt="" />
                             </Col>
-                            <Col className='text-light'>
+                            <Col className='text-light col-12 col-md-6 '>
                                 <h3>{name}</h3>
                                 <p>Experience : {chef.experience} Years <br /> Number of Recipes : {chef.recipes} <br /> Likes : {chef.likes}</p>
                                 <p><small> {short_bio}</small></p>

@@ -13,21 +13,7 @@
 
 }
 
-.navbar-brand:hover {
-    color: black;
-}
 
-.nav-link {
-    margin-right: 10px;
-    margin-left: 10px;
-    font-family: 'Rubik', sans-serif;
-    color: black;
-    text-transform: uppercase;
-}
-
-.nav-link:hover {
-    color: black;
-}
 
 .btn0 {
     height: 40px;
@@ -88,4 +74,12 @@
 
 h1 {
     font-weight: 700;
+}
+
+.menu-color{
+    color: black;
+}
+
+.active{
+  color: rgb(248, 26, 92);  
 }

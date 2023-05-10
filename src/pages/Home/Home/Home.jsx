@@ -89,7 +89,7 @@ const Home = () => {
                 <Marquee speed={50} pauseOnHover>
                     <Container>
                         <div className="row">
-                            <div className="col-md-3 py-4 d-flex align-items-stretch">
+                            <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
                                 <Card className='shadow-lg border border-0'>
                                     <div className='d-flex justify-content-between align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/comma.png" />
@@ -112,7 +112,7 @@ const Home = () => {
                                     </div>
                                 </Card>
                             </div>
-                            <div className="col-md-3 py-4 d-flex align-items-stretch">
+                            <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
                                 <Card className='shadow-lg border border-0 '>
                                     <div className='d-flex justify-content-between align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/comma.png" />
@@ -135,7 +135,7 @@ const Home = () => {
                                     </div>
                                 </Card>
                             </div>
-                            <div className="col-md-3 py-4 d-flex align-items-stretch">
+                            <div className=" col-12 col-md-3 py-4 d-flex align-items-stretch">
                                 <Card className='shadow-lg border border-0'>
                                     <div className='d-flex justify-content-between align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/comma.png" />
@@ -158,7 +158,7 @@ const Home = () => {
                                     </div>
                                 </Card>
                             </div>
-                            <div className="col-md-3 py-4 d-flex align-items-stretch">
+                            <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
                                 <Card className='shadow-lg border border-0'>
                                     <div className='d-flex justify-content-between align-items-center'>
                                         <Card.Img className='w-25' src="/images/customers/comma.png" />
