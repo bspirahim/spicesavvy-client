@@ -12,7 +12,7 @@ const ViewRecipe = () => {
     const [foods, setAllFood] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chef-food/${id}`)
+        fetch(`https://spicesavvy-server-bspirahim.vercel.app/chef-food/${id}`)
             .then(res => res.json())
             .then(data => setAllFood(data))
             .catch(error => {
@@ -29,7 +29,7 @@ const ViewRecipe = () => {
                 <Container>
                     <div>
                         <Row className=' d-flex align-items-center'>
-                            <Col className='col-12 col-md-6'>
+                            <Col className='col-12 col-md-6 mb-4'>
                                 <img height='400' className=' w-100 card-img-top  rounded' src={img} alt="" />
                             </Col>
                             <Col className='text-light col-12 col-md-6 '>

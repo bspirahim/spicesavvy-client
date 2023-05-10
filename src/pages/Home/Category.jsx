@@ -9,7 +9,7 @@ const Category = () => {
 
     const [category, setCategory] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${id}`)
+        fetch(`https://spicesavvy-server-bspirahim.vercel.app/category/${id}`)
             .then(res => res.json())
             .then(data => setCategory(data))
     }, [])

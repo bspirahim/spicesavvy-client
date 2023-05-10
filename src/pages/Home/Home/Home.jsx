@@ -12,7 +12,7 @@ const Home = () => {
     const [chefs, setChefs] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/chef')
+        fetch('https://spicesavvy-server-bspirahim.vercel.app/chef')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => {
@@ -38,7 +38,9 @@ const Home = () => {
                     {
                         foods.map(food =>
 
-                            <div className="col-md-2 text-center">
+                            <div className="col-md-2 text-center"
+                                key={food.id}
+                            >
                                 <div className='bg-image hover-overlay hover-zoom hover-shadow ripple'>
                                     <Link to={`/category/${food.id}`}>
                                         <img src={food.img} className='w-75  rounded-circle' /></Link>
@@ -62,7 +64,9 @@ const Home = () => {
                             chefs.map(chef =>
 
 
-                                <div className="col-md-4 mb-4">
+                                <div className="col-md-4 mb-4"
+                                    key={chef.id}
+                                >
                                     <Card className='p-0'>
                                         <Card.Img variant="top" height='250px' className='w-100' src={chef.img} />
                                         <Card.Body className=''>
@@ -86,104 +90,102 @@ const Home = () => {
 
             <section className=' container my-5 pb-5'>
                 <h2 className='text-center mb-5 '>Review's</h2>
-                <Marquee speed={50} pauseOnHover>
-                    <Container>
-                        <div className="row">
-                            <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
-                                <Card className='shadow-lg border border-0'>
-                                    <div className='d-flex justify-content-between align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/comma.png" />
-                                        <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
-                                            <span className='px-1 fw-bold'>4.7</span>
-                                            <span className='pb-1'><FaStar></FaStar></span>
-                                        </div>
+                <Container>
+                    <div className="row">
+                        <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
+                            <Card className='shadow-lg border border-0'>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/comma.png" />
+                                    <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
+                                        <span className='px-1 fw-bold'>4.7</span>
+                                        <span className='pb-1'><FaStar></FaStar></span>
                                     </div>
-                                    <Card.Body>
-                                        <Card.Text>
-                                            A popular street food made with chickpeas, potatoes, tamarind sauce, and spices. It is often served in a bowl and eaten with a spoon.
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <div className='d-flex align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/player-1.png" />
-                                        <div className='px-3 lh-1'>
-                                            <p className='fw-bold mb-1'>Jhon Smith</p>
-                                            <span>Google</span>
-                                        </div>
+                                </div>
+                                <Card.Body>
+                                    <Card.Text>
+                                        A popular street food made with chickpeas, potatoes, tamarind sauce, and spices. It is often served in a bowl and eaten with a spoon.
+                                    </Card.Text>
+                                </Card.Body>
+                                <div className='d-flex align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/player-1.png" />
+                                    <div className='px-3 lh-1'>
+                                        <p className='fw-bold mb-1'>Jhon Smith</p>
+                                        <span>Google</span>
                                     </div>
-                                </Card>
-                            </div>
-                            <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
-                                <Card className='shadow-lg border border-0 '>
-                                    <div className='d-flex justify-content-between align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/comma.png" />
-                                        <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
-                                            <span className='px-1 fw-bold'>4.7</span>
-                                            <span className='pb-1'><FaStar></FaStar></span>
-                                        </div>
-                                    </div>
-                                    <Card.Body>
-                                        <Card.Text>
-                                            A type of sweet or savory pastry made from rice flour and stuffed with a variety of fillings. It is often eaten as a snack or dessert.
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <div className='d-flex align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/player-6.png" />
-                                        <div className='px-3 lh-1'>
-                                            <p className='fw-bold mb-1'>Abu Sufian</p>
-                                            <span>Google</span>
-                                        </div>
-                                    </div>
-                                </Card>
-                            </div>
-                            <div className=" col-12 col-md-3 py-4 d-flex align-items-stretch">
-                                <Card className='shadow-lg border border-0'>
-                                    <div className='d-flex justify-content-between align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/comma.png" />
-                                        <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
-                                            <span className='px-1 fw-bold'>4.7</span>
-                                            <span className='pb-1'><FaStar></FaStar></span>
-                                        </div>
-                                    </div>
-                                    <Card.Body>
-                                        <Card.Text>
-                                            A spicy beef curry made with onions, tomatoes, and a blend of spices. It is typically served with naan bread or rice.
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <div className='d-flex align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/player-5.png" />
-                                        <div className='px-3 lh-1'>
-                                            <p className='fw-bold  mb-1'>Mujahid</p>
-                                            <span>Google</span>
-                                        </div>
-                                    </div>
-                                </Card>
-                            </div>
-                            <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
-                                <Card className='shadow-lg border border-0'>
-                                    <div className='d-flex justify-content-between align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/comma.png" />
-                                        <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
-                                            <span className='px-1 fw-bold'>4.7</span>
-                                            <span className='pb-1'><FaStar></FaStar></span>
-                                        </div>
-                                    </div>
-                                    <Card.Body>
-                                        <Card.Text>
-                                            A fragrant rice dish made with spices, meat, and sometimes vegetables. It is one of the most popular Bangladeshi dishes, and there are many regional variations.
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <div className='d-flex align-items-center'>
-                                        <Card.Img className='w-25' src="/images/customers/player-3.png" />
-                                        <div className='px-3 lh-1'>
-                                            <p className='fw-bold  mb-1'>Maruf Ahmed</p>
-                                            <span>Google</span>
-                                        </div>
-                                    </div>
-                                </Card>
-                            </div>
+                                </div>
+                            </Card>
                         </div>
-                    </Container>
-                </Marquee>
+                        <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
+                            <Card className='shadow-lg border border-0 '>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/comma.png" />
+                                    <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
+                                        <span className='px-1 fw-bold'>4.7</span>
+                                        <span className='pb-1'><FaStar></FaStar></span>
+                                    </div>
+                                </div>
+                                <Card.Body>
+                                    <Card.Text>
+                                        A type of sweet or savory pastry made from rice flour and stuffed with a variety of fillings. It is often eaten as a snack or dessert.
+                                    </Card.Text>
+                                </Card.Body>
+                                <div className='d-flex align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/player-6.png" />
+                                    <div className='px-3 lh-1'>
+                                        <p className='fw-bold mb-1'>Abu Sufian</p>
+                                        <span>Google</span>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                        <div className=" col-12 col-md-3 py-4 d-flex align-items-stretch">
+                            <Card className='shadow-lg border border-0'>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/comma.png" />
+                                    <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
+                                        <span className='px-1 fw-bold'>4.7</span>
+                                        <span className='pb-1'><FaStar></FaStar></span>
+                                    </div>
+                                </div>
+                                <Card.Body>
+                                    <Card.Text>
+                                        A spicy beef curry made with onions, tomatoes, and a blend of spices. It is typically served with naan bread or rice.
+                                    </Card.Text>
+                                </Card.Body>
+                                <div className='d-flex align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/player-5.png" />
+                                    <div className='px-3 lh-1'>
+                                        <p className='fw-bold  mb-1'>Mujahid</p>
+                                        <span>Google</span>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                        <div className="col-12 col-md-3 py-4 d-flex align-items-stretch">
+                            <Card className='shadow-lg border border-0'>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/comma.png" />
+                                    <div className='d-flex align-items-center bg-warning  px-2 rounded-pill'>
+                                        <span className='px-1 fw-bold'>4.7</span>
+                                        <span className='pb-1'><FaStar></FaStar></span>
+                                    </div>
+                                </div>
+                                <Card.Body>
+                                    <Card.Text>
+                                        A fragrant rice dish made with spices, meat, and sometimes vegetables. It is one of the most popular Bangladeshi dishes, and there are many regional variations.
+                                    </Card.Text>
+                                </Card.Body>
+                                <div className='d-flex align-items-center'>
+                                    <Card.Img className='w-25' src="/images/customers/player-3.png" />
+                                    <div className='px-3 lh-1'>
+                                        <p className='fw-bold  mb-1'>Maruf Ahmed</p>
+                                        <span>Google</span>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                    </div>
+                </Container>
             </section>
 
 

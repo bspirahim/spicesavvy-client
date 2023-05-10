@@ -29,13 +29,13 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader:() => fetch('http://localhost:5000/category')
+        loader:() => fetch('https://spicesavvy-server-bspirahim.vercel.app/category')
         
       },
       {
         path:'/category/:id',
         element:<Category></Category>,
-        loader:({params}) => fetch(`http://localhost:5000/category-food/${params.id}`)
+        loader:({params}) => fetch(`https://spicesavvy-server-bspirahim.vercel.app/category-food/${params.id}`)
       },
       
       {
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <ViewRecipe></ViewRecipe>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+        loader: ({params}) => fetch(`https://spicesavvy-server-bspirahim.vercel.app/chef/${params.id}`)
       },
      
     ]
