@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import Rating from 'react-rating';
 import FoodModal from '../FoodModal/FoodModal';
 import { toast } from 'react-toastify';
+import Rating from 'react-rating';
 
 const FoodCard = ({ food }) => {
     const [favorite, setFavorite] = useState(false)

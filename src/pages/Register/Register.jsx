@@ -4,10 +4,11 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import UseTitle from '../../hooks/UseTitle';
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
-
+    UseTitle('Register')
     const location = useLocation()
     const navigate = useNavigate()
 

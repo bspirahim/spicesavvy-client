@@ -3,10 +3,12 @@ import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import UseTitle from '../../hooks/UseTitle';
 
 const Login = () => {
 
     const {signinUser} = useContext(AuthContext)
+    UseTitle('Login')
     const location = useLocation()
     const navigate = useNavigate()
 

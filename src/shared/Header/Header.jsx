@@ -62,9 +62,6 @@ const Header = () => {
                                 :
                                 (<Link to='/login'><Button className='primary-btn'>Login</Button></Link>)}
 
-
-
-
                         </div>
                     </div>
                 </div>
